@@ -70,7 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)\$(TargetFileName)" "$(NeosVRDir)\nml_mods\"</PostBuildEvent>
-  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec ContinueOnError="False" Command="copy &quot;$(TargetDir)\$(TargetFileName)&quot; &quot;$(NeosVRDir)\nml_mods\&quot;" />
+    <Exec ContinueOnError="True" Command="call adb push &quot;$(TargetDir)$(TargetFileName)&quot; &quot;/sdcard/ModData/com.Solirax.Neos/nml_mods&quot;" />
+  </Target>
 </Project>
