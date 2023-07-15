@@ -2,9 +2,16 @@
 
 This mod adds touch-screen gamepad support for mobile devices. Also provides an on-screen keyboard for text inputs.
 
-Currently limited to joystick movements and a select few multi-touch controls. More to come soon!
-
 *Note: This is solely intended for flatscreen Android users!*
+
+## Control Scheme
+Screen Input        | Simulated Control
+--------------------|--------------------
+Near-left Quadrant  | Left joystick/Move
+Rear-right Quadrant | Right joystick/Look
+Android Back Button | Open Dash
+Double Tap          | Interact
+4 Fingers           | Open Radial Menu
 
 ## Installation
 - Make sure you've patched your application with NML support first! You can find the APK patching tool [here](https://github.com/Raemien/NeosAPKPatchingTool).
