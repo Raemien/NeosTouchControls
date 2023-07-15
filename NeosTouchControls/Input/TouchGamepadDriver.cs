@@ -22,20 +22,20 @@ namespace NeosTouchControls.Input
                 _gamepad = _inputInterface.CreateDevice<StandardGamepad>("Touch Controls");
             }
 
-            if (_touchGamepad.isTouching && deltaTime < 0.8f)
+            if (_touchGamepad.IsTouching && deltaTime < 0.8f)
             {
                 this._gamepad.A.UpdateState(false);
                 this._gamepad.B.UpdateState(false);
                 this._gamepad.X.UpdateState(false);
-                this._gamepad.Y.UpdateState(_touchGamepad.yButtonPress);
+                this._gamepad.Y.UpdateState(_touchGamepad.YButtonPress);
                 this._gamepad.LeftBumper.UpdateState(false);
                 this._gamepad.RightBumper.UpdateState(false);
-                this._gamepad.LeftThumbstick.UpdateValue(_touchGamepad.leftStickPos, deltaTime);
+                this._gamepad.LeftThumbstick.UpdateValue(_touchGamepad.LeftStickPos, deltaTime);
                 this._gamepad.LeftThumbstickClick.UpdateState(false);
-                this._gamepad.RightThumbstick.UpdateValue(_touchGamepad.rightStickPos, deltaTime);
+                this._gamepad.RightThumbstick.UpdateValue(_touchGamepad.RightStickPos, deltaTime);
                 this._gamepad.RightThumbstickClick.UpdateState(false);
                 this._gamepad.LeftTrigger.UpdateValue(0f, deltaTime);
-                this._gamepad.RightTrigger.UpdateValue(_touchGamepad.rightTriggerDist, deltaTime);
+                this._gamepad.RightTrigger.UpdateValue(_touchGamepad.RightTriggerDist, deltaTime);
                 this._gamepad.UpdateDPad(false, false, false, false, deltaTime);
                 this._gamepad.Menu.UpdateState(false);
                 this._gamepad.Start.UpdateState(false);

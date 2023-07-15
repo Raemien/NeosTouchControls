@@ -6,33 +6,33 @@ namespace NeosTouchControls.Input
 {
     public class TouchGamepad
     {
-        private InputInterface _input;
+        private readonly InputInterface _input;
         public TouchGamepad(InputInterface input)
         {
             _input = input;
         }
 
-        public bool isTouching
+        public bool IsTouching
         {
             get { return Touch.activeTouches.Count != 0; }
         }
 
-        public bool yButtonPress
+        public bool YButtonPress
         {
             get { return Touch.activeTouches.Count > 3; }
         }
 
-        public float rightTriggerDist
+        public float RightTriggerDist
         {
             get { return GetMultiTap(2) ? 0.0f : 100.0f; }
         }
 
-        public float2 rightStickPos
+        public float2 RightStickPos
         {
             get => GetStickPos(_rightStickCenter);
         }
 
-        public float2 leftStickPos
+        public float2 LeftStickPos
         {
             get => GetStickPos(_leftStickCenter);
         }
@@ -41,9 +41,11 @@ namespace NeosTouchControls.Input
         private float2 NormalizeTouch(Touch touch)
         {
             UnityEngine.Vector2 unityPos = touch.screenPosition;
+
             float2 resolution = (float2)_input.WindowResolution;
             float2 pos = new float2(unityPos.x, unityPos.y);
             if (pos.x == 0.0f || pos.y == 0.0f) return float2.Zero;
+
             return float2.Divide(ref pos, ref resolution);
         }
 
@@ -56,9 +58,7 @@ namespace NeosTouchControls.Input
                 float2 fingerPos = NormalizeTouch(touch);
                 float2 diff = centerPos - fingerPos;
 
-                // TODO: Use ^2 magnitude for faster distance calculation
                 float dist = MathX.Abs(diff.Magnitude);
-                UniLog.Log(string.Format("[NeosAndroidDebug] Dist is {0:F4}", dist));
                 if (dist > 0.2f) continue;
                 if (dist > MathX.Abs(stick.Magnitude)) stick = diff;
             }
