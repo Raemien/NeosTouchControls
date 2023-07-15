@@ -54,7 +54,6 @@ namespace NeosTouchControls.Input
             float2 stick = new float2(0.0f, 0.0f);
             foreach (var touch in Touch.activeTouches)
             {
-                if (touch.pressure < 0.1f) continue;
                 float2 fingerPos = NormalizeTouch(touch);
                 float2 diff = centerPos - fingerPos;
 
