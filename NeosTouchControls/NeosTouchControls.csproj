@@ -61,6 +61,7 @@
     <Compile Include="HarmonyPatches\InputInterface_RegisterDriver.cs" />
     <Compile Include="HarmonyPatches\InputInterface_ShowKeyboard.cs" />
     <Compile Include="HarmonyPatches\TouchDriver_UpdateInputs.cs" />
+    <Compile Include="HarmonyPatches\UI\CommonTool_PositionContextMenu.cs" />
     <Compile Include="Input\TouchGamepad.cs" />
     <Compile Include="Input\TouchGamepadDriver.cs" />
     <Compile Include="NeosTouchControls.cs" />
